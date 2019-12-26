@@ -1,0 +1,61 @@
+«front-matter
+| Author : Gautam Dey <gautam.dey77@gmail.com>
+| Date: 17 Oct 2019
+| Title : Notes from build text matchers
+;
+»
+
+§ gdtxt -- Good Enough text
+
+§§ Lists as blocks
+
+«note; This is now part of Issue #5 »
+
+Should lists be a block. There are some interesting
+issues that arise from lists. 
+
+1. How/when are they terminated?
+2. How do you control numbering styling?
+3. Should a list be split across pages?
+
+All of these are difficult to answer with the current
+layout of lists. However, if a list as a block, with the
+body being the list text. The headers of the block could
+house additional parameters and styling options.
+
+e.g:
+
+«code | lang : gdtxt ;
+\« list | type : ordered | page-break: keep-together ;
+ • How/when are they terminated?
+ • How do you control numbering styling?
+ • Should a list be split across pages?
+\»
+»
+
+• This make's it easy to change between numbered
+and bullet lists.
+• checkbox would still be determined by adding [`\[\]`]
+next to the [`•`].
+• parser is simplified as it's a block with a special handler
+for the body?
+
+Cons of this approach:
+
+• arguable harder to read.
+• more to type
+
+§§ Insert in-lines elements
+
+I don't think insert in-lines elements should exists. I think it should
+be a new line type. First of it's is not very well defined. What is it
+suppose to do?
+
+The way I'm currently thinking about it is that it should place the contents
+that is being referenced at that point. Therefore this should be a line type
+and not a in-character type. Possibility even a block type.
+
+«code | lang : gdtxt;
+«insert | file: http://news-at-current.com; »
+»
+
